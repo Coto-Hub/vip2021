@@ -25,7 +25,7 @@ module.exports.affichSupprimerVip = async function (request, response) {
 }
 
 module.exports.ajouterVip = async function (request, response) {
-    await request.files.sampleFile.mv("./public/images/vip/" + request.files.sampleFile.name)
+    await request.files.sampleFile.mv("../public/images/vip/" + request.files.sampleFile.name)
     let info = await model.addVIP(request.body);
     await model.addPhotoVIP(info.vip_numero, request.body, request.files.sampleFile.name);
     response.success = "Ajout du VIP effectué";
