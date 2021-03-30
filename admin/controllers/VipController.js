@@ -33,7 +33,7 @@ module.exports.ajouterVip = async function (request, response) {
 }
 module.exports.modifierVip = async function (request, response) {
     if (request.files !== null) {
-        const path = './public/images/vip/' + request.body.photo_adresse;
+        const path = '../public/images/vip/' + request.body.photo_adresse;
         fs.unlink(path, (err) => {
             if (err) {
                 console.error(err)
