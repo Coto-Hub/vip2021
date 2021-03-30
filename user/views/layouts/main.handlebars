@@ -1,0 +1,49 @@
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" language="javascript" src="/lytebox/lytebox.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/lytebox/lytebox.css" type="text/css" media="screen" />
+        <link rel="shortcut icon" type="image/png" href="/css/etoile.ico" sizes="16x16"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/structure.css" />
+        <title>{{title}}</title>
+    </head>
+    <body class="monBody">
+        <div id="container">
+            <div id="header">
+                <div class="baniere"><img src="/images/sixvoix.png" alt="SIXVOIX l'encyclopédie des stars" /> </div>
+            </div>
+            <div class="menu_haut">
+              <ul>
+                <li><a href="/accueil">ACCUEIL</a></li>
+                <li class="traitVertical"><a href="/repertoire">REPERTOIRE DES STARS</a></li>
+                <li class="traitVertical"><a href="/album">ALBUM PHOTO</a></li>
+                <li class="traitVertical"><a href="/articles">ARTICLES</a></li>
+              </ul>
+            </div>
+            <div id="contenu">
+                <br/>
+                <br/>
+                {{{body}}}
+            </div>
+            <div id="footer">
+                L'encyclopédie des stars depuis février 2021 (en NodeJS)
+                <br />
+                © IUT du Limousin DUT Informatique année 2
+                <br />
+                Application réalisée par Thomas Marty et Hervé Beteau
+                <br />
+                <img src="/images/nodejs.png" id= "LogoNode" alt="Logo NodeJs" title="Logo Node.JS" />
+            </div>
+        </div>
+        <script src="/js/lightbox.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip({});
+            });
+        </script>
+    </body>
+</html>

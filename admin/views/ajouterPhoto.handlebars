@@ -1,0 +1,28 @@
+{{> nav}}
+<div id="contenu">
+    <br/>
+    <br/>
+    {{> PhotoNav}}
+    <div class="content">
+        <fieldset>
+            <legend>Ajout Photo</legend>
+            <form ref='uploadForm' id='uploadForm' action='/GestionPhotos/ajouterPhoto' method='post' encType="multipart/form-data">
+                <label for="vip">Nom du vip :</label>
+                <select id="natio" name="vip_numero">
+                    {{#each vips}}
+                        <option value="{{this.vip_numero}}">{{this.vip_nom}} {{this.vip_prenom}}</option>
+                    {{/each}}
+                </select>
+                <label for="img">Adresse de la photo :</label>
+                <input type="file" name="sampleFile" id="img" value="" required>
+                <label for="titre">Titre :</label>
+                <input type="text" name="titre" value="" required>
+                <label for="comPh">Un petit commentaire ?</label>
+                <textarea name="comPh" id="comPh" rows="5" cols="80"></textarea>
+                <input class="btn" type="reset" name="reset" value="Annuler">
+                <input class="btn" type="submit" name="" value="Valider">
+            </form>
+        </fieldset>
+    </div>
+</div>
+{{>footer}}

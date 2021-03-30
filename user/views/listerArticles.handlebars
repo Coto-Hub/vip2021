@@ -1,0 +1,26 @@
+<div class="liste-articles">
+    {{#if articlesVip}}
+        {{#each articlesVip}}
+            <fieldset>
+                <legend>Article</legend>
+                <p class="name-vip">{{this.vip_prenom}} {{this.vip_nom}}</p>
+                <p>{{this.article_resume}}</p>
+                <div class="info-article">
+                    <p>[ Ajouté le {{formatDate this.article_date_insert 'DD MMMM YYYY'}} ]</p>
+                    <a href="../../repertoire/vip/{{this.vip_numero}}">voir sa fiche</a>
+                </div>
+            </fieldset>
+        {{/each}}
+    {{else}}
+        <fieldset>
+            <legend>Article</legend>
+            <p>{{content}}</p>
+        </fieldset>
+    {{/if}}
+</div>
+<div class="liste-vip">
+    <img class="img-header" src="/images/vips.png" alt="VIPs">
+    {{#each vips}}
+        <a href="../articles/{{this.vip_numero}}">{{this.vip_prenom}} {{this.vip_nom}}</a>
+    {{/each}}
+</div>

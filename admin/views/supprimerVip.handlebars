@@ -1,0 +1,22 @@
+{{> nav}}
+<div id="contenu">
+    <br/>
+    <br/>
+    {{> vipNav}}
+    <div class="content">
+        <fieldset class="supVip">
+            <legend>Supprimer VIPs</legend>
+            {{#each vips}}
+                <form class="supprimerVip" action='/GestionVips/supprimerVip' method='post'>
+                    <input type="hidden" name="vip_numero" value="{{this.vip_numero}}">
+                    <input type="hidden" name="photo_adresse" value="{{this.photo_adresse}}">
+                    <a data-toggle="tooltip" data-html="true"
+                       title="<img src='/images/vip/{{this.photo_adresse}}'>
+                          <p><strong>{{this.vip_prenom}} {{this.vip_nom}}</strong><br>{{this.vip_texte}}...</p>">{{this.vip_prenom}} {{this.vip_nom}}</a>
+                    <input type="submit" class="delete" name="delete" value="">
+                </form>
+            {{/each}}
+        </fieldset>
+    </div>
+</div>
+{{>footer}}

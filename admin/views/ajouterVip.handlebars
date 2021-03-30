@@ -1,0 +1,41 @@
+{{> nav}}
+<div id="contenu">
+    <br/>
+    <br/>
+    {{> vipNav}}
+    <div class="content">
+        <fieldset>
+            <legend>Ajout VIPs</legend>
+            <form ref='uploadForm' id='uploadForm' action='/GestionVips/ajouterVip' method='post' encType="multipart/form-data">
+                <label for="nom">Nom* :</label>
+                <input type="text" id="nom" name="nom" value="" required>
+                <label for="prenom">Prénom* :</label>
+                <input type="text" id="prenom" name="prenom" value="" required>
+                <label for="sexe">Sexe :</label>
+                <select id="sexe" name="sexe">
+                    <option value="M">Masculin</option>
+                    <option value="F">Féminin</option>
+                </select>
+                <label for="date">Date de naissance :</label>
+                <input type="date" name="date" id="date" value="" required>
+                <label for="natio">Nationalité :</label>
+                <select id="natio" name="natio">
+                    {{#each nationalites}}
+                        <option value="{{this.nationalite_numero}}">{{this.nationalite_nom}}</option>
+                    {{/each}}
+                </select>
+                <label for="com">Commentaire :</label>
+                <textarea name="com" id="com" rows="5" cols="80" required></textarea>
+                <label for="img">Sélectionner l'image :</label>
+                <input type="file" name="sampleFile" id="img" value="" required>
+                <label for="sujet">Sujet photo :</label>
+                <textarea name="sujet" id="sujet" rows="5" cols="80" required></textarea>
+                <label for="comPh">Commentaire photo :</label>
+                <textarea name="comPh" id="comPh" rows="5" cols="80" required></textarea>
+                <input class="btn" type="reset" name="reset" value="Annuler">
+                <input class="btn" type="submit" name="" value="Valider">
+            </form>
+        </fieldset>
+    </div>
+</div>
+{{>footer}}

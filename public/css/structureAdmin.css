@@ -1,0 +1,286 @@
+body {
+    font-family: "Segoe UI", "DejaVu Sans",Verdana, sans-serif;
+    background-image:-webkit-linear-gradient(#9f0909, #4e0000);
+    background-image:-o-linear-gradient(#9f0909, #4e0000);
+    background-image:linear-gradient(#9f0909, #4e0000);
+    background-size: 1rem 200rem;
+    font-size:0.8em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #000000;
+}
+.monBody #container {
+    width: 1300px;
+    margin: 0 auto;
+    background:#ffffff;
+}
+.monBody #header {
+    height:140px;
+    background-color:#000;
+    color:#fff;
+}
+
+.menu_haut {background-color:#000;color:#fff;margin-top:-13px;width:100%;}
+.menu_haut ul {
+	width:100%;
+	text-align:center;
+	height:30px;
+	margin-left:-50px;
+	margin-right:-50px;
+	}
+.menu_haut li {
+	text-decoration:none;
+	font-weight:bold;
+	display:inline;
+	font-size:14px;
+	padding:10px 20% 10px 20%;
+	color:#fff;
+	}
+.menu_haut li a {
+	color: #fff;
+	text-decoration: none;
+	display: inline;
+	height: 100%;
+	border: 0 none;
+}
+.menu_haut li a:hover {
+	color:#000;
+	background:#eee;
+}
+.menu_haut div p, .menu_haut div a {
+    display: inline-block;
+    font-size: 15px;
+    padding: 5px 10px;
+    color: white;
+}
+.menu_haut div {
+    border: 1px solid white;
+    width: 230px;
+    height: 35px;
+    margin-left: calc(100% - 300px);
+}
+.monBody #contenu {
+    padding:20px;
+    overflow: auto;
+}
+.monBody #footer {
+    padding: 0 10px;
+    font-size: 12px;
+    text-align:center;
+    height:150px;
+    background:url(/image/footer.jpg) no-repeat;
+}
+.baniere{
+    float:left;
+    margin-top:20px;
+    margin-left:5px;
+    border:none;
+    background-color: black;
+}
+.baniere img{
+  border:none;
+}
+
+#LogoNode {
+    max-height: 20%;
+    max-width: 20%;
+}
+
+a  {
+    text-decoration:none;
+    color:#0072ff;
+}
+
+.traitVertical {
+  border-left: 1px white solid;
+}
+
+.tooltip.in{
+    opacity:1!important;
+}
+.content {
+    display: inline-block;
+    width: calc(98% - 200px);
+    margin: 0px 2%;
+    vertical-align: top;
+}
+fieldset {
+    border: 1px solid black;
+}
+legend {
+    width: auto;
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+fieldset p {
+    margin: 10px;
+    font-size: 15px;
+    text-align: left;
+}
+fieldset form input, fieldset form label, fieldset form select, fieldset form input[type="file"] {
+    font-size: 13px;
+    display: inline-block;
+    height: 20px;
+    margin: 20px 5px;
+}
+fieldset form textarea {
+    font-size: 13px;
+    margin: 10px;
+}
+fieldset form input[type="file"] {
+    width: 300px;
+}
+fieldset form input, fieldset form select {
+    width: 200px;
+}
+fieldset form {
+    display: grid;
+    grid-template-columns: 30% 50%;
+    justify-content: space-around;
+}
+fieldset form label {
+    font-size: 15px;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: top;
+}
+fieldset form .btn {
+    margin-left: 180px;
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+}
+h4 {
+    margin: 0;
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bolder;
+}
+.connection {
+    font-size: 20px;
+    color: white;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+.connection label {
+    margin: 10px;
+    font-weight: normal;
+    width: 140px;
+    text-align: left;
+}
+.connection p {
+    color: red;
+}
+.connection input {
+    font-size: 18px;
+    color: black;
+    width: 150px;
+}
+.connection input[type="submit"], .connection input[type="reset"] {
+    font-size: 15px;
+    margin: 30px;
+}
+.menu-vip {
+    display: inline-block;
+    width: 150px;
+    background-color: black;
+    border-radius: 10px;
+    margin-left: 20px;
+    border: 2px solid black;
+}
+.menu-vip img {
+    margin: 10px 0px;
+}
+.menu-vip a {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 12px 5px;
+    border-top: 1px solid white;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+}
+.menu-vip a:last-child {
+    border-radius: 0px 0px 10px 10px;
+}
+.menu-vip a:hover {
+    background-color: white;
+    color: black;
+}
+.content H1 {
+    font-weight: bold;
+    color: #00B000;
+}
+.liste-vip {
+    display: inline-block;
+    width: 25%;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.liste-vip .img-header {
+    border-radius: 20px 20px 0px 0px;
+    vertical-align: auto;
+    padding: 10px calc(50% - 33px) 20px calc(50% - 33px);
+    background-color: black;
+}
+.liste-vip a {
+    display: block;
+    font-size: 15px;
+    text-decoration: underline;
+    color: black;
+}
+.content .modifVip {
+    display: inline-block;
+    width: 60%;
+    margin-right: 5%;
+    vertical-align: top;
+}
+fieldset img {
+    width: 100px;
+    margin-left: 10px;
+}
+.content .supVip {
+    display: inline-block;
+    width: 60%;
+    margin-right: 5%;
+    vertical-align: top;
+}
+.supprimerVip ,.supprimerPhoto {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 70% 20%;
+    border-bottom: 1px solid black;
+    margin: 0px;
+}
+.supprimerVip a {
+    font-size: 15px;
+    height: 50px;
+    padding: 15px 0px;
+}
+.supprimerPhoto img {
+    height: 150px;
+    width: auto;
+    padding: 10px;
+    display: block;
+    margin: auto;
+}
+.supprimerVip input ,.supprimerPhoto input {
+    font-size: 15px;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    background-image: url("../images/delete.png");
+    background-size: 20px;
+    padding: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 5px solid black;
+    background-color: transparent;
+    border-radius: 50%;
+}
+.supprimerPhoto input {
+    margin: 45px 0px;
+}

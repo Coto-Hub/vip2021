@@ -1,0 +1,105 @@
+<div class="lettreVip">
+    <h1> Cliquez sur une lettre : </h1>
+    {{#each pre_lettre}}
+        <a href="../../repertoire/{{this.pre_lettre}}">
+            {{this.pre_lettre}}
+        </a>
+    {{/each}}
+</div>
+<br>
+{{#each personnes}}
+    <div class="listerVip">
+        <a href="../repertoire/vip/{{this.vip_numero}}">
+        <img src="/images/vip/{{this.photo_adresse}}" alt="{{this.photo_adresse}}"><br>
+        {{this.vip_prenom}} {{this.vip_nom}}</a>
+    </div>
+{{/each}}
+
+{{#if personne}}
+    <div class="afficherVip">
+        <img src="/images/vip/{{personne.photo_adresse}}">
+        <p><strong>Nom : </strong>{{personne.vip_prenom}} {{personne.vip_nom}}</p>
+        <p><strong>Date de naissance: </strong>{{formatDate personne.vip_naissance 'dddd D MMMM YYYY' }}</p>
+        <p><strong>Nationalité : </strong>{{personne.nationalite_nom}}</p>
+    {{#if couturier}}
+        <p><strong>Profession : </strong>{{couturier}}</p>
+        {{#if defileCout}}
+            <p><strong>Principal(aux) défilé(s) : </strong>
+            {{#each defileCout}}
+                {{this.defile_lieu}} ({{formatDate this.defile_date 'MMMM YYYY' }})<br>
+            {{/each}}
+        {{/if}}
+    {{/if}}
+    {{#if mannequin}}
+        <p><strong>Profession : </strong>{{mannequin}}</p>
+        {{#if defileVip}}
+            <p><strong>Principal(aux) défilé(s) : </strong>
+            {{#each defileVip}}
+                {{this.defile_lieu}} ({{formatDate this.defile_date 'MMMM YYYY' }}) de
+                    <a data-toggle="tooltip" data-html="true"
+                       title="<img src='/images/vip/{{this.photo_adresse}}'>
+                          <p><strong>{{this.vip_prenom}} {{this.vip_nom}}</strong><br>{{this.vip_texte}}...</p>"
+                       href="../../repertoire/vip/{{this.vip_numero}}">{{this.vip_prenom}} {{this.vip_nom}}</a><br>
+            {{/each}}
+        {{/if}}
+    {{/if}}
+    {{#if chanteur}}
+        <p><strong>Profession : </strong>{{chanteur}}</p>
+        {{#if albums}}
+            <p><strong>Principal(aux) album(s) : </strong>
+            {{#each albums}}
+                {{this.album_titre}} ({{formatDate this.album_date 'MMMM YYYY' }}) {{this.maisondisque_nom}}<br>
+            {{/each}}
+        {{/if}}
+    {{/if}}
+    {{#if acteur}}
+        <p><strong>Profession : </strong>{{acteur}}</p>
+        {{#if filmJoue}}
+            <p><strong>Principal(aux) film(s) : </strong>
+            {{#each filmJoue}}
+                {{this.film_titre}} ({{formatDate this.defile_date 'MMMM YYYY' }}) de
+                    <a data-toggle="tooltip" data-html="true"
+                       title="<img src='/images/vip/{{this.photo_adresse}}'>
+                          <p><strong>{{this.vip_prenom}} {{this.vip_nom}}</strong><br>{{this.vip_texte}}...</p>"
+                       href="../../repertoire/vip/{{this.vip_numero}}">{{this.vip_prenom}} {{this.vip_nom}}</a><br>
+            {{/each}}
+        {{/if}}
+    {{/if}}
+    {{#if realisateur}}
+        <p><strong>Profession : </strong> {{realisateur}}</p>
+        {{#if filmReal}}
+            <p><strong>Principal(aux) film(s) : </strong>
+            {{#each filmReal}}
+                {{this.film_titre}} ({{formatDate this.defile_date 'MMMM YYYY' }})<br>
+            {{/each}}
+            </p>
+        {{/if}}
+    {{/if}}
+    {{#if mariage}}
+        <p><strong>Mariage(s) : </strong>
+            {{#each mariage}}
+                <a data-toggle="tooltip" data-html="true"
+                   title="<img src='/images/vip/{{this.photo_adresse}}'>
+                          <p><strong>{{this.vip_prenom}} {{this.vip_nom}}</strong><br>{{this.vip_texte}}...</p>"
+                   href="../../repertoire/vip/{{this.vip_numero}}">{{this.vip_prenom}} {{this.vip_nom}}</a> ({{formatDate this.date_evenement 'MMMM YYYY' }} {{#if this.mariage_fin}} --> {{formatDate this.mariage_fin 'MMMM YYYY' }}{{/if}}) <strong>Lieu : </strong>{{this.mariage_lieu}}<br>
+            {{/each}}
+        </p>
+    {{/if}}
+    {{#if liaison}}
+        <p><strong>Liaison(s) : </strong>
+            {{#each liaison}}
+                <a data-toggle="tooltip" data-html="true"
+                   title="<img src='/images/vip/{{this.photo_adresse}}'>
+                          <p><strong>{{this.vip_prenom}} {{this.vip_nom}}</strong><br>{{this.vip_texte}}...</p>"
+                   href="../../repertoire/vip/{{this.vip_numero}}">{{this.vip_prenom}} {{this.vip_nom}}</a> ({{formatDate this.date_evenement 'MMMM YYYY' }}){{#if this.liaison_motiffin}} <strong>raison fin liaison : </strong>{{this.liaison_motiffin}}{{/if}}<br>
+            {{/each}}
+        </p>
+    {{/if}}
+    <p><strong>Qui suis-je ? : </strong>{{personne.vip_texte}}</p>
+    {{#if photos}}
+        {{#each photos}}
+            <a href="/images/vip/{{this.photo_adresse}}" rel="lytebox[vacation]" title="{{this.photo_sujet}} - {{this.photo_commentaire}}"><img HEIGHT="150px" src="/images/vip/{{this.photo_adresse}}"></a>
+        {{/each}}
+    {{/if}}
+    </div>
+{{/if}}

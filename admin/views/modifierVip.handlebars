@@ -1,0 +1,64 @@
+{{> nav}}
+<div id="contenu">
+    <br/>
+    <br/>
+    {{> vipNav}}
+    <div class="content">
+        {{#if vip}}
+            <fieldset class="modifVip">
+                <legend>Modifier VIPs</legend>
+                <form ref='uploadForm' id='uploadForm' action='/GestionVips/modifierVip' method='post' encType="multipart/form-data">
+                    <input type="hidden" name="vip_numero" value="{{vip.vip_numero}}">
+                    <label for="nom">Nom* :</label>
+                    <input type="text" id="nom" name="nom" value="{{vip.vip_nom}}" required>
+                    <label for="prenom">Prénom* :</label>
+                    <input type="text" id="prenom" name="prenom" value="{{vip.vip_prenom}}" required>
+                    <label for="sexe">Sexe :</label>
+                    <select id="sexe" name="sexe">
+                    {{#if isMen}}
+                        <option value="M">Masculin</option>
+                        <option value="F">Féminin</option>
+                    {{else}}
+                        <option value="F">Féminin</option>
+                        <option value="M">Masculin</option>
+                    {{/if}}
+                    </select>
+                    <label for="date">Date de naissance :</label>
+                    <input type="date" name="date" id="date" value="{{formatDate vip.vip_naissance 'YYYY-MM-DD'}}" required>
+                    <label for="natio">Nationalité :</label>
+                    <select id="natio" name="natio">
+                        <option value="{{vip.nationalite_numero}}">{{vip.nationalite_nom}}</option>
+                        {{#each nationalites}}
+                            <option value="{{this.nationalite_numero}}">{{this.nationalite_nom}}</option>
+                        {{/each}}
+                    </select>
+                    <label for="com">Commentaire :</label>
+                    <textarea name="com" id="com" rows="5" cols="80" required>{{vip.vip_texte}}</textarea>
+                    <label for="imgA">Image actuelle :</label>
+                    <img id="imgA" src="/images/vip/{{vip.photo_adresse}}" alt="{{vip.photo_adresse}}">
+                    <input type="hidden" name="photo_adresse" value="{{vip.photo_adresse}}">
+                    <label for="img">Sélectionner l'image :</label>
+                    <input type="file" name="sampleFile" id="img" value="">
+                    <label for="sujet">Sujet photo :</label>
+                    <textarea name="sujet" id="sujet" rows="5" cols="80" required>{{vip.photo_sujet}}</textarea>
+                    <label for="comPh">Commentaire photo :</label>
+                    <textarea name="comPh" id="comPh" rows="5" cols="80" required>{{vip.photo_commentaire}}</textarea>
+                    <input class="btn" type="reset" name="reset" value="Annuler">
+                    <input class="btn" type="submit" name="" value="Modifier">
+                </form>
+            </fieldset>
+        {{else}}
+            <fieldset class="modifVip">
+                <legend>VIPs</legend>
+                <p>{{content}}</p>
+            </fieldset>
+        {{/if}}
+        <div class="liste-vip">
+            <img class="img-header" src="/images/vips.png" alt="VIPs">
+            {{#each vips}}
+                <a href="/GestionVips/modifierVip/{{this.vip_numero}}">{{this.vip_prenom}} {{this.vip_nom}}</a>
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{>footer}}

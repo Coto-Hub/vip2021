@@ -1,0 +1,111 @@
+<div data-numimg="1" id="liste-photo" class="liste-photo">
+    {{#if listePhoto}}
+        {{#each listePhoto}}
+            <div class="affich-photo">
+                <a class="previousImg"><<</a>
+                <img src="/images/vip/{{this.photo_adresse}}" alt="{{this.photo_adresse}}">
+                <a class="nextImg">>></a>
+                <fieldset>
+                    <legend>Commentaire</legend>
+                    <p>{{this.photo_commentaire}}</p>
+                </fieldset>
+            </div>
+        {{/each}}
+        <script type="text/javascript">
+            function actualisePhotoVip() {
+                let numImg = parseInt($("#liste-photo").data("numimg"));
+                $("#liste-photo > .affich-photo").css("display", "none");
+                $("#liste-photo .affich-photo:nth-child(" + numImg + ")").css("display", "block");
+                if (numImg == 1) {
+                    $(".previousImg").css("display", "none");
+                }
+                else {
+                    $(".previousImg").css("display", "inline-block");
+                }
+                if (numImg == $('#liste-photo > .affich-photo').length) {
+                    $(".nextImg").css("display", "none");
+                }
+                else {
+                    $(".nextImg").css("display", "inline-block");
+                }
+            }
+            $("body").on("click", ".nextImg", function(event) {
+                $("#liste-photo").data("numimg", $("#liste-photo").data("numimg") + 1);
+                actualisePhotoVip();
+            });
+            $("body").on("click", ".previousImg", function(event) {
+                $("#liste-photo").data("numimg", $("#liste-photo").data("numimg") - 1);
+                actualisePhotoVip();
+            });
+            actualisePhotoVip();
+        </script>
+    {{else}}
+        <fieldset>
+            <legend>Album photo</legend>
+            <p>{{content}}</p>
+        </fieldset>
+    {{/if}}
+</div>
+<div class="liste-vip-p">
+    <div data-page="{{num_page}}" id="menu-photo">
+        {{#each vips}}
+            <a class="img-vip" data-vipnum="{{this.vip_numero}}"><img src="/images/vip/{{this.photo_adresse}}" alt="{{this.vip_nom}} {{this.vip_prenom}}"></a>
+        {{/each}}
+    </div>
+    <div class="liste-vip-btn">
+        <a id="btn-deb">Début</a>
+        <a id="btn-pre">Précédent</a>
+        <a id="btn-sui">Suivant</a>
+        <a id="btn-fin">Fin</a>
+    </div>
+</div>
+<script type="text/javascript">
+    function actualisePhotoMenu() {
+        let page = parseInt($("#menu-photo").data("page"));
+        $("#menu-photo a").css("display", "none");
+        for (let i = page*12+1; i < (page+1)*12+1; i++) {
+            $("#menu-photo a:nth-child(" + i + ")").css("display", "inline-block");
+        }
+        if (page == 0) {
+            $("#btn-deb").css("display", "none");
+            $("#btn-pre").css("display", "none");
+        }
+        else {
+            $("#btn-deb").css("display", "inline-block");
+            $("#btn-pre").css("display", "inline-block");
+        }
+        if (page == parseInt($('#menu-photo > a').length / 12)) {
+            $("#btn-fin").css("display", "none");
+            $("#btn-sui").css("display", "none");
+        }
+        else {
+            $("#btn-fin").css("display", "inline-block");
+            $("#btn-sui").css("display", "inline-block");
+        }
+    }
+    $("#btn-deb").on("click", function(event) {
+        $("#menu-photo").data("page", 0);
+        actualisePhotoMenu();
+    });
+    $("#btn-fin").on("click", function(event) {
+        $("#menu-photo").data("page", parseInt($('#menu-photo > a').length / 12));
+        actualisePhotoMenu();
+    });
+    $("#btn-pre").on("click", function(event) {
+        $("#menu-photo").data("page", parseInt($("#menu-photo").data("page"))-1);
+        actualisePhotoMenu();
+    });
+    $("#btn-sui").on("click", function(event) {
+        $("#menu-photo").data("page", parseInt($("#menu-photo").data("page"))+1);
+        actualisePhotoMenu();
+    });
+    $("a").each(function() {
+        if ($(this).data("vipnum") == {{vip_num}}) {
+            $(this).css("opacity", "1");
+        }
+    });
+    $(".img-vip").on("click", function(event) {
+        window.location.href = "../../album/" + $("#menu-photo").data("page") + "/" + $(this).data("vipnum");
+    });
+    actualisePhotoMenu();
+</script>
